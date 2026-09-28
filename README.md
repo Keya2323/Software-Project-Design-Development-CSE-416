@@ -212,16 +212,3 @@ The complete UniQuery desktop wireframe is included in this repository as:
 [Open UniQuery Figma Prototype](https://www.figma.com/proto/vf6W3Yg0HSPzWweHDkVtlf/UniQuery?node-id=3-28092&t=ae6rSV8ojlV7ngHp-1)
 
 ---
-
-## 10. Project Information
-
-**Project:** UniQuery — A Smart University Information and Admission Assistant  
-**Tagline:** Ask. Explore. Choose.  
-**Course:** Software Project Design & Development (CSE 416)  
-**Session:** Autumn 2026  
-**Supervisor:** Dr. Mahfida Amjad Dipa  
-**Department:** Department of Computer Science and Engineering
-
----
-
-### End of README
