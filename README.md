@@ -37,9 +37,79 @@ The system follows the three-stage workflow:
 - Student Profile and Shortlist Management
 - Responsive Web User Interface
 
+## 3. Technology Stack
+
+The current project configuration uses the following technologies and tools:
+
+- **Frontend library:** React (`^19.2.8`)
+- **DOM rendering:** React DOM (`^19.2.8`)
+- **Development server and build tool:** Vite (`^8.3.0`)
+- **React integration for Vite:** `@vitejs/plugin-react` (`^6.1.1`)
+- **Icons:** Lucide React (`^1.59.0`), Bootstrap Icons, and Font Awesome
+- **Font:** Poppins, loaded from Google Fonts
+- **Code linting:** Oxlint (`^1.81.0`)
+
+Bootstrap Icons, Font Awesome, and Poppins are referenced in `index.html` through external CDN/Google Fonts links, so an internet connection may be needed for those assets to load.
+
+### Installation and Setup
+
+#### Prerequisites
+
+- Node.js and npm installed on your computer
+- The UniQuery project files downloaded or cloned to your computer
+
+#### Run the Project Locally
+
+1. Open a terminal in the project root folder (the folder containing `package.json`).
+2. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the Vite development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open the local URL shown in the terminal in your web browser.
+
+#### Create and Preview a Production Build
+
+Build the project:
+
+```bash
+npm run build
+```
+
+Vite generates the production build in the `dist/` directory. To preview that build locally, run:
+
+```bash
+npm run preview
+```
+
+#### Available npm Commands
+
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Starts the local development server. |
+| `npm run build` | Builds the application for production. |
+| `npm run lint` | Runs Oxlint to check the code. |
+| `npm run preview` | Previews the production build locally. |
+
+### Main Configuration Files
+
+- **`package.json`** — Lists project dependencies and available npm scripts.
+- **`package-lock.json`** — Records the dependency versions used for installation.
+- **`index.html`** — Provides the page title, metadata, font and icon links, and the React entry point (`/src/main.jsx`).
+- **`vite.config.js`** — Configures Vite with the React plugin.
+- **`.oxlintrc.json`** — Configures Oxlint rules, including React rules of hooks.
+- **`.gitignore`** — Excludes generated files and local-only files such as `node_modules/` and `dist/` from Git.
+
 ---
 
-## 3. User Interface & Wireframe
+## 4. User Interface & Wireframe
 
 The UniQuery wireframe presents the main desktop interface and follows the **ASK → EXPLORE → CHOOSE** workflow.
 
@@ -59,55 +129,55 @@ The wireframe contains the following **9 major screens**:
 8. **My Shortlist**
 9. **Student Profile**
 
-### 3.1 Home / Landing Page
+### 4.1 Home / Landing Page
 - Introduces UniQuery with the tagline **“Ask. Explore. Choose.”**
 - Provides primary actions for **Ask UniQuery** and **Explore Universities**.
 - Presents the three main functions: ASK, EXPLORE, and CHOOSE.
 - Shows how UniQuery works through the three-step workflow.
 - Provides quick access to upcoming admission deadlines.
 
-### 3.2 Ask AI Chatbot
+### 4.2 Ask AI Chatbot
 - Provides a conversational interface for admission-related questions.
 - Allows students to ask about admission, eligibility, fees, programs, facilities, scholarships, and deadlines.
 - Includes suggested questions for common admission queries.
 - Provides university information with source/update information.
 
-### 3.3 Explore / Eligibility Matcher
+### 4.3 Explore / Eligibility Matcher
 - Collects academic information such as SSC GPA, HSC GPA, and academic group.
 - Supports academic groups including Science, Business Studies, and Humanities.
 - Includes preferences such as budget range, university type, location, and preferred program.
 - Provides a **Check Eligibility** action to generate matching results.
 
-### 3.4 Eligibility Results
+### 4.4 Eligibility Results
 - Displays the student's submitted profile.
 - Provides filtering and sorting options.
 - Lists suitable universities/programs with information such as tuition, location, scholarship availability, and deadlines.
 - Provides actions such as **View Details**, **Add to Shortlist**, and **Compare**.
 
-### 3.5 University / Program Details
+### 4.5 University / Program Details
 - Presents detailed information about a selected university/program.
 - Includes overview, programs, eligibility, tuition and fees, scholarships, facilities, and admission schedule.
 - Provides actions to add to shortlist, compare, and access the official application portal.
 
-### 3.6 Compare Universities
+### 4.6 Compare Universities
 - Allows students to select multiple universities for comparison.
 - Presents selected universities in a side-by-side comparison layout.
 - Compares important information such as university type, location, program, eligibility, tuition fee, application fee, scholarship/waiver, facilities, ranking, and application deadline.
 - Provides options to continue toward the student's choice and official application portal.
 
-### 3.7 Admission Notices & Deadlines
+### 4.7 Admission Notices & Deadlines
 - Provides filters for university, program, admission type, status, and date.
 - Displays notices with deadlines, status, and view-notice actions.
 - Includes an upcoming-deadlines section.
 - Uses status indicators such as **Active**, **Closing Soon**, and **Closed**.
 
-### 3.8 My Shortlist
+### 4.8 My Shortlist
 - Stores universities selected by the student.
 - Displays important information including program, tuition, scholarship, location, and deadline.
 - Provides actions to view details, compare, and remove universities.
 - Provides an option to compare shortlisted universities.
 
-### 3.9 Student Profile
+### 4.9 Student Profile
 - Displays student information such as name and email.
 - Shows academic information including SSC GPA, HSC GPA, and academic group.
 - Shows preferences such as university type, location, budget range, and preferred program.
@@ -116,7 +186,7 @@ The wireframe contains the following **9 major screens**:
 
 ---
 
-## 4. Wireframe Design & Navigation
+## 5. Wireframe Design & Navigation
 
 The wireframe uses a consistent navigation structure across the main desktop screens.
 
@@ -143,7 +213,7 @@ The wireframe emphasizes:
 
 ---
 
-## 5. Figma UI / Clickable Prototype
+## 6. Figma UI / Clickable Prototype
 
 The Figma prototype is based on the submitted UniQuery wireframe and demonstrates the connected user flow between the major screens.
 
@@ -153,7 +223,7 @@ The Figma prototype is based on the submitted UniQuery wireframe and demonstrate
 
 ---
 
-## 6. System Workflow
+## 7. System Workflow
 
 1. The student accesses UniQuery through the Home page.
 2. **ASK:** The student asks admission-related questions through the AI chatbot.
@@ -167,7 +237,7 @@ The Figma prototype is based on the submitted UniQuery wireframe and demonstrate
 
 ---
 
-## 7. System Design
+## 8. System Design
 
 The project includes the following system models:
 - Component Diagram
@@ -185,7 +255,7 @@ The main system components include:
 
 ---
 
-## 8. Prototype Scope
+## 9. Prototype Scope
 
 The prototype is a responsive web platform focused on:
 - University information
@@ -201,7 +271,7 @@ Direct university application submission and native mobile applications are outs
 
 ---
 
-## 9. Submitted Materials
+## 10. Submitted Materials
 
 ### Wireframe
 The complete UniQuery desktop wireframe is included in this repository as:
@@ -210,5 +280,66 @@ The complete UniQuery desktop wireframe is included in this repository as:
 
 ### Figma Prototype
 [Open UniQuery Figma Prototype](https://www.figma.com/proto/vf6W3Yg0HSPzWweHDkVtlf/UniQuery?node-id=3-28092&t=ae6rSV8ojlV7ngHp-1)
+
+---
+
+
+---
+
+## 11. References
+
+### 11.1 Technologies and Libraries
+
+1. **React Documentation**  
+   https://react.dev/
+
+2. **Vite Documentation**  
+   https://vite.dev/guide/
+
+3. **Lucide React — Icon Library**  
+   https://lucide.dev/guide/packages/lucide-react
+
+4. **Oxlint — JavaScript and TypeScript Linter**  
+   https://oxc.rs/docs/guide/usage/linter.html
+
+### 11.2 UI Resources
+
+5. **Google Fonts — Poppins**  
+   https://fonts.google.com/specimen/Poppins
+
+6. **Bootstrap Icons**  
+   https://icons.getbootstrap.com/
+
+7. **Font Awesome Icons**  
+   https://fontawesome.com/
+
+### 11.3 Project Design
+
+8. **UniQuery — Figma Prototype**  
+   https://www.figma.com/proto/vf6W3Yg0HSPzWweHDkVtlf/UniQuery?node-id=3-28092&t=ae6rSV8ojlV7ngHp-1
+
+### 11.4 AI Tools and Assistance
+
+9. **ChatGPT — OpenAI**  
+   https://chatgpt.com/
+
+10. **Gemini — Google**  
+    https://gemini.google.com/
+
+11. **Claude — Anthropic**  
+    https://claude.ai/
+
+AI tools were used as development-support resources for tasks
+such as brainstorming, understanding technical concepts,
+improving documentation, and obtaining coding assistance,
+where applicable. The outputs were reviewed and adapted by
+the project members, who are responsible for the final
+implementation and content.
+
+### 11.5 University Information Sources
+
+University admission requirements, tuition fees, scholarships,
+program details, and admission deadlines should be verified
+using the respective universities' official websites.
 
 ---
