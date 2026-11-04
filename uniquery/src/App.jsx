@@ -631,6 +631,34 @@ export default function App() {
         </div>
       </footer>
 
+
+      {/* Floating Ask AI Button — all pages */}
+      <button
+        onClick={() => handleNavigate('ask-ai')}
+        aria-label="Open Ask AI"
+        style={{
+          position: 'fixed',
+          right: '24px',
+          bottom: '24px',
+          zIndex: 2000,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px',
+          padding: '18px 28px',
+          border: 'none',
+          borderRadius: '9999px',
+          background: '#921E33',
+          color: '#FFFFFF',
+          fontSize: '1.05rem',
+          fontWeight: 700,
+          boxShadow: '0 8px 24px rgba(146, 30, 51, 0.35)',
+          cursor: 'pointer'
+        }}
+      >
+        <Sparkles size={22} />
+        <span>Ask AI</span>
+      </button>
+
     </div>
   );
 }

@@ -297,6 +297,7 @@ export default function AskAiView({
                         fontSize: '0.925rem',
                         color: 'var(--text-main)',
                         lineHeight: 1.6,
+                        whiteSpace: 'pre-line',
                         marginBottom: '10px'
                       }}>
                         {msg.text}
