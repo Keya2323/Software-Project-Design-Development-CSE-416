@@ -12,7 +12,7 @@ export const suggestedQuestions = [
 ];
 
 export const getBotResponse = (query, profileContextActive = true, userProfile = null) => {
-  const q = query.toLowerCase().trim();
+  const q = String(query ?? "").toLowerCase().trim();
 
   // Second-timer queries
   if (q.includes("second") || q.includes("2nd") || q.includes("second time") || q.includes("second-timer")) {
@@ -41,8 +41,8 @@ export const getBotResponse = (query, profileContextActive = true, userProfile =
     };
   }
 
-  // Dhaka University queries
-  if (q.includes("du") || q.includes("dhaka university") || q.includes("unit a") || q.includes("ka unit")) {
+  // Dhaka University queries (use word boundary for "du" to avoid matching "education"/"undergraduate"/"graduation")
+  if (/\bdu\b/.test(q) || q.includes("dhaka university") || q.includes("unit a") || q.includes("ka unit")) {
     return {
       text: "University of Dhaka Science Unit (KA Unit) 2026:\n\n• Total Science Seats: ~1,851 seats (CSE: 60, Software Engineering IIT: 50, EEE: 70, Pharmacy: 75)\n• Eligibility: Combined GPA 8.00 in SSC and HSC (minimum 3.50 in each, including 4th subject).\n• Marks Breakdown (Total 120 Marks):\n  - MCQ Section (60 Marks): Physics 15, Chemistry 15, Math/Bio 15, Bangla/English 15\n  - Written Section (40 Marks): Conceptual problems in Physics, Chemistry, Math/Bio\n  - SSC & HSC GPA Contribution (20 Marks)\n• Second Timers: Strictly not allowed.\n• Application Deadline: 02 November 2026 at admission.eis.du.ac.bd.",
       universityIds: ["du"],

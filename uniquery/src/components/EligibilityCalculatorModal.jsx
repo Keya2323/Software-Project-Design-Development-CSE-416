@@ -38,11 +38,13 @@ export default function EligibilityCalculatorModal({ isOpen, onClose, onExploreM
       minCombined: 8.00,
       minSubject: 'Math + Phy + Chem = 15.0 GP',
       status: (sscGpa >= 4.0 && hscGpa >= 4.0 && stemSum >= 14.5 && group === 'Science') ? 'eligible' : 'ineligible',
-      reason: (sscGpa < 4.0 || hscGpa < 4.0) 
-        ? 'Requires min GPA 4.00 in both SSC & HSC.'
-        : stemSum < 14.5 
-          ? 'Requires near-perfect Grade Points in Math, Physics, and Chemistry (Total ≥ 14.5).' 
-          : 'Fully eligible to apply for preliminary screening!'
+      reason: group !== 'Science'
+        ? 'Requires Science group background in SSC & HSC.'
+        : (sscGpa < 4.0 || hscGpa < 4.0) 
+          ? 'Requires min GPA 4.00 in both SSC & HSC.'
+          : stemSum < 14.5 
+            ? 'Requires near-perfect Grade Points in Math, Physics, and Chemistry (Total ≥ 14.5).' 
+            : 'Fully eligible to apply for preliminary screening!'
     },
     {
       name: 'University of Dhaka (KA Unit - Science)',
@@ -50,11 +52,13 @@ export default function EligibilityCalculatorModal({ isOpen, onClose, onExploreM
       minCombined: 8.00,
       minSubject: 'Min 3.50 in SSC & HSC each',
       status: (totalGpa >= 8.00 && sscGpa >= 3.5 && hscGpa >= 3.5 && group === 'Science') ? 'eligible' : 'ineligible',
-      reason: totalGpa < 8.00 
-        ? `Combined GPA is ${totalGpa.toFixed(2)}, but DU requires min 8.00 total.`
-        : (sscGpa < 3.5 || hscGpa < 3.5)
-          ? 'Requires min 3.50 separately in both exams.'
-          : 'Fully eligible for Dhaka University Unit A admission test!'
+      reason: group !== 'Science'
+        ? 'DU Science Unit (KA) requires Science group background.'
+        : totalGpa < 8.00 
+          ? `Combined GPA is ${totalGpa.toFixed(2)}, but DU requires min 8.00 total.`
+          : (sscGpa < 3.5 || hscGpa < 3.5)
+            ? 'Requires min 3.50 separately in both exams.'
+            : 'Fully eligible for Dhaka University Unit A admission test!'
     },
     {
       name: 'Government Medical Colleges (MBBS)',
@@ -62,11 +66,13 @@ export default function EligibilityCalculatorModal({ isOpen, onClose, onExploreM
       minCombined: 9.00,
       minSubject: 'Min Bio GPA 4.00, SSC/HSC min 4.00',
       status: (totalGpa >= 9.00 && sscGpa >= 4.0 && hscGpa >= 4.0 && bioGp >= 4.0 && group === 'Science') ? 'eligible' : 'ineligible',
-      reason: totalGpa < 9.00 
-        ? `Combined GPA is ${totalGpa.toFixed(2)}, medical requires min 9.00 total.`
-        : bioGp < 4.0
-          ? 'Requires min GPA 4.00 in HSC Biology.'
-          : 'Fully eligible for Medical Admission Test (National Exam)!'
+      reason: group !== 'Science'
+        ? 'Medical (MBBS) admission requires Science group background with Biology.'
+        : totalGpa < 9.00 
+          ? `Combined GPA is ${totalGpa.toFixed(2)}, medical requires min 9.00 total.`
+          : bioGp < 4.0
+            ? 'Requires min GPA 4.00 in HSC Biology.'
+            : 'Fully eligible for Medical Admission Test (National Exam)!'
     },
     {
       name: 'GST General, Science & Tech Cluster (24 Public Unis)',

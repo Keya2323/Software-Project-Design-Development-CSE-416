@@ -199,8 +199,15 @@ export default function App() {
             {exploreSubView === 'wizard' && (
               <ExploreWizard 
                 userProfile={userProfile}
+                onUpdateProfile={(updatedProfile) => {
+                  setUserProfile(prev => ({ ...prev, ...updatedProfile }));
+                }}
+                onCompleteStep={() => {
+                  setExploreSubView('results');
+                  showToast("Profile & preferences updated! Calculated match scores.");
+                }}
                 onSaveProfile={(updatedProfile) => {
-                  setUserProfile(updatedProfile);
+                  setUserProfile(prev => ({ ...prev, ...updatedProfile }));
                   setExploreSubView('results');
                   showToast("Profile & preferences updated! Calculated match scores.");
                 }}
@@ -217,6 +224,7 @@ export default function App() {
                 onToggleShortlist={handleToggleShortlist}
                 onToggleCompare={handleToggleCompare}
                 onSelectUniversity={handleSelectUniversity}
+                onEditProfile={() => setExploreSubView('wizard')}
                 onOpenWizard={() => setExploreSubView('wizard')}
                 onNavigateToCompare={() => setActiveTab('compare')}
               />
@@ -255,7 +263,9 @@ export default function App() {
         {activeTab === 'notices' && (
           <NoticesView 
             onAskAboutUni={handleAskAboutUni}
+            activeModalNoticeId={activeModalNoticeId}
             initialModalNoticeId={activeModalNoticeId}
+            onOpenNotice={(noticeId) => setActiveModalNoticeId(noticeId)}
             onCloseModalNotice={() => setActiveModalNoticeId(null)}
           />
         )}

@@ -21,11 +21,12 @@ export default function NoticesView({ activeModalNoticeId, onCloseModalNotice, o
   const [selectedDate, setSelectedDate] = useState('Next 60 days');
   const [alertSuccessToast, setAlertSuccessToast] = useState(false);
 
-  // Filtered notices
+  // Filtered notices (normalize kebab-case vs Title Case status labels)
+  const normalizeStatus = (val) => String(val ?? '').toLowerCase().trim().replace(/\s+/g, '-');
   const filteredNotices = noticesData.filter(n => {
     if (selectedUni !== 'All universities' && n.code !== selectedUni) return false;
     if (selectedProg !== 'All programs' && !n.program.toLowerCase().includes(selectedProg.toLowerCase())) return false;
-    if (selectedStatus !== 'All statuses' && n.status !== selectedStatus) return false;
+    if (selectedStatus !== 'All statuses' && normalizeStatus(n.status) !== normalizeStatus(selectedStatus)) return false;
     return true;
   });
 
